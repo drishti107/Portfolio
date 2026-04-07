@@ -1,0 +1,292 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: #080808; 
+    color: aliceblue;
+    min-height: 100vh;
+    line-height: 1.5;
+    overflow-x: hidden;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Typography & Colors */
+.logo { 
+    font-weight: 700; 
+    letter-spacing: 1px;
+    font-size: 1.8rem;
+}
+
+/* Visual Effects */
+.layer-blur {
+    height: 0; width: 30rem;
+    position: absolute; top: 20%; right: 0;
+    box-shadow: 0 0 700px 15px rgba(144, 0, 255, 0.4); 
+    rotate: -40deg; z-index: -1;
+}
+
+/* Header & Nav */
+header {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.5rem 5rem; z-index: 9999; position: fixed; 
+    top: 0; left: 0; width: 100%;
+    background-color: rgba(8, 8, 8, 0.8); 
+    backdrop-filter: blur(10px); 
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+nav { display: flex; gap: 3rem; align-items: center; }
+nav a { font-size: 1rem; text-decoration: none; color: #a0a0a0; transition: color 0.3s ease; }
+nav a:hover { color: #fff; }
+
+/* View Count Pill */
+.view-count {
+    position: fixed;
+    top: 100px; 
+    right: 5rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 0.4rem 1rem;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: #e0e0e0;
+    z-index: 9000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.view-count .dot {
+    width: 8px;
+    height: 8px;
+    background-color: #f59e0b; 
+    border-radius: 50%;
+    display: inline-block;
+    box-shadow: 0 0 8px rgba(245, 158, 11, 0.8);
+}
+
+/* Buttons */
+.btn-get-started {
+    display: inline-block; padding: 0.75rem 2.5rem;
+    border-radius: 50px; font-weight: 500; text-decoration: none;
+    background: linear-gradient(135deg, #613198, #9000ff);
+    color: white; transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.btn-get-started:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(144, 0, 255, 0.4);
+}
+
+/* Hero Section */
+.hero-container {
+    width: 100%; min-height: 100vh;
+    padding: 120px 5rem 0; position: relative;
+    display: flex; align-items: center;
+}
+.content { max-width: 45rem; z-index: 10; }
+
+.content h1 { 
+    font-size: 4.5rem; 
+    font-weight: 700; 
+    margin: 0.5rem 0; 
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 
+                 0 0 20px rgba(255, 255, 255, 0.6), 
+                 0 0 30px rgba(255, 255, 255, 0.4);
+}
+
+.content h2 { 
+    font-size: 2.5rem; 
+    color: #ffffff; 
+    font-weight: 600; 
+    margin-bottom: 1.5rem; 
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.6), 
+                 0 0 20px rgba(255, 255, 255, 0.4);
+}
+
+.description { font-size: 1.2rem; color: #cccccc; margin-bottom: 2.5rem; padding-left: 2; line-height: 1.6; }
+
+/* Spline Robot (With Smooth Edge Fade) */
+.robot {
+    position: absolute; bottom: 50px; right: 5%;
+    width: 500px; height: 600px; z-index: 5;
+    -webkit-mask-image: radial-gradient(ellipse at center, black 50%, transparent 80%);
+    mask-image: radial-gradient(ellipse at center, black 50%, transparent 80%);
+    filter: drop-shadow(0 0 40px rgba(144, 0, 255, 0.2)); 
+}
+
+/* Sections */
+.section {
+    padding: 6rem 5rem;
+    display: flex; flex-direction: column; align-items: center;
+}
+.section-title {
+    font-size: 2.5rem; font-weight: 600; color: #fff;
+    margin-bottom: 0.5rem; text-align: center;
+}
+.subtitle {
+    color: #a0a0a0; font-size: 1.2rem; margin-bottom: 3rem; text-align: center;
+}
+
+/* BENTO CARDS */
+.bento-card {
+    background-color: #151515;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 2rem;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+.bento-card:hover {
+    border-color: rgba(144, 0, 255, 0.5);
+    transform: translateY(-4px);
+}
+
+/* "What I Do" Grid */
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem; width: 100%; max-width: 1000px; margin-top: 2rem;
+}
+.bento-icon { color: #9000ff; font-size: 1.8rem; margin-bottom: 1.5rem; }
+.bento-card h3 { font-size: 1.4rem; color: #fff; margin-bottom: 0.8rem; font-weight: 500; }
+.bento-card p { color: #a0a0a0; font-size: 1rem; line-height: 1.5; }
+
+/* "Tech Stack" Grid */
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1rem; width: 100%; max-width: 900px; margin-top: 2rem;
+}
+/* "Tech Stack" Grid */
+.tech-card {
+    background-color: #151515;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px; 
+    padding: 1.5rem 1rem;
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center;
+    /* Changed from 0.3s ease to 0.15s ease-out for a much faster, smoother snap */
+    transition: all 0.15s ease-out;
+    cursor: pointer;
+}
+
+.tech-card i { 
+    font-size: 2.2rem; 
+    margin-bottom: 0.8rem; 
+    /* Adds a tiny transition to the icon itself so it scales smoothly */
+    transition: transform 0.15s ease-out; 
+}
+
+.tech-card span { 
+    color: #ccc; 
+    font-size: 0.95rem; 
+    font-weight: 500;
+}
+
+.tech-card:hover {
+    background-color: rgba(144, 0, 255, 0.08);
+    border-color: rgba(144, 0, 255, 0.4);
+    /* Increased the lift slightly and added a glowing shadow for the "pop" */
+    transform: translateY(-4px);
+    box-shadow: 0 6px 15px rgba(144, 0, 255, 0.15);
+}
+
+.tech-card:hover i {
+    /* Makes the icon pop up slightly inside the card */
+    transform: scale(1.1); 
+}
+.tech-card i { font-size: 2.2rem; margin-bottom: 0.8rem; }
+.tech-card span { color: #ccc; font-size: 0.95rem; font-weight: 500;}
+.tech-card:hover {
+    background-color: rgba(144, 0, 255, 0.05);
+    border-color: rgba(144, 0, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+/* Project Cards */
+.projects-bento-grid {
+    display: grid; grid-template-columns: 1fr; gap: 3rem; width: 100%; max-width: 1000px;
+}
+.project-bento-card {
+    background: transparent; cursor: pointer;
+}
+.project-img-container {
+    background-color: #151515; border-radius: 24px; padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: border-color 0.3s ease;
+}
+.project-bento-card:hover .project-img-container {
+    border-color: rgba(144, 0, 255, 0.5);
+}
+.project-image {
+    width: 100%; height: auto; border-radius: 16px; display: block; object-fit: cover;
+}
+.project-info { padding: 1.5rem 0.5rem; text-align: left; }
+.project-title { font-size: 1.8rem; color: #fff; margin-bottom: 0.4rem; font-weight: 500; }
+.project-category { color: #a0a0a0; font-size: 1.1rem; }
+
+/* Contact Section */
+.contact-bento-container {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;
+    width: 100%; max-width: 1000px;
+}
+.map-card { padding: 1.5rem; }
+.info-item { display: flex; align-items: center; margin-top: 1.5rem; color: #ccc; }
+.info-item i { color: #9000ff; font-size: 1.2rem; margin-right: 1rem; width: 20px; text-align: center;}
+.mt-3 { margin-top: 2rem; }
+
+.contact-form input, .contact-form textarea {
+    width: 100%; padding: 1.2rem; margin-bottom: 1rem;
+    border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.05);
+    background-color: rgba(255, 255, 255, 0.03);
+    color: #fff; font-size: 1rem; font-family: inherit;
+    transition: all 0.3s ease;
+}
+.contact-form input:focus, .contact-form textarea:focus {
+    outline: none; border-color: #9000ff; background-color: rgba(255, 255, 255, 0.06);
+}
+.submit-btn {
+    width: auto; padding: 1rem 2.5rem; float: right;
+    background: #fff; color: #000; border: none; border-radius: 50px;
+    font-weight: 600; font-size: 1rem; cursor: pointer;
+    transition: transform 0.3s ease;
+}
+.submit-btn:hover { transform: translateY(-2px); background: #dcdcdc; }
+
+/* Footer */
+.footer { padding: 2rem; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 2rem;}
+.social-links a { margin: 0 12px; color: #a0a0a0; font-size: 1.5rem; transition: color 0.3s ease; }
+.social-links a:hover { color: #fff; }
+
+/* Responsive Adjustments */
+@media (max-width: 900px) {
+    header { padding: 1rem 2rem; }
+    nav { display: none;} 
+    .hero-container { padding: 120px 2rem 0; text-align: center; justify-content: center;}
+    .content { margin-left: 0; }
+    .robot { opacity: 0.2; z-index: -1; right: 50%; transform: translateX(50%); }
+    .contact-bento-container { grid-template-columns: 1fr; }
+    .view-count { top: 80px; right: 2rem; }
+}
+
+/* Glow Text Interactive Toggle */
+#glow-text {
+    cursor: pointer;
+    user-select: none; /* Prevents the text from highlighting blue if you click too fast */
+    transition: text-shadow 0.3s ease, color 0.3s ease;
+}
+
+.glow-off {
+    text-shadow: none !important;
+    color: #a0a0a0 !important; /* Dims the text slightly when the light is "turned off" */
+}
