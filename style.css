@@ -278,11 +278,11 @@ nav a:hover { color: #fff; }
 /* Glow Text Interactive Toggle */
 #glow-text {
     cursor: pointer;
-    user-select: none; /* Prevents the text from highlighting blue if you click too fast */
+    user-select: none; 
     transition: text-shadow 0.3s ease, color 0.3s ease;
 }
 
 .glow-off {
     text-shadow: none !important;
-    color: #a0a0a0 !important; /* Dims the text slightly when the light is "turned off" */
+    color: #a0a0a0 !important; 
 }
