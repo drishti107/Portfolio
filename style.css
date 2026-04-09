@@ -175,7 +175,6 @@ nav a:hover { color: #fff; }
     flex-direction: column; 
     align-items: center; 
     justify-content: center;
-    /* Changed from 0.3s ease to 0.15s ease-out for a much faster, smoother snap */
     transition: all 0.15s ease-out;
     cursor: pointer;
 }
@@ -183,7 +182,6 @@ nav a:hover { color: #fff; }
 .tech-card i { 
     font-size: 2.2rem; 
     margin-bottom: 0.8rem; 
-    /* Adds a tiny transition to the icon itself so it scales smoothly */
     transition: transform 0.15s ease-out; 
 }
 
@@ -196,13 +194,11 @@ nav a:hover { color: #fff; }
 .tech-card:hover {
     background-color: rgba(144, 0, 255, 0.08);
     border-color: rgba(144, 0, 255, 0.4);
-    /* Increased the lift slightly and added a glowing shadow for the "pop" */
     transform: translateY(-4px);
     box-shadow: 0 6px 15px rgba(144, 0, 255, 0.15);
 }
 
 .tech-card:hover i {
-    /* Makes the icon pop up slightly inside the card */
     transform: scale(1.1); 
 }
 .tech-card i { font-size: 2.2rem; margin-bottom: 0.8rem; }
